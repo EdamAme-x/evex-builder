@@ -1,7 +1,7 @@
 # evex-builder
 Support: [discord.gg/evex](https://evex.land)
 
-Compile JavaScript to native binaries
+Compile JavaScript to native binaries, wasm, c
 
 ## Installation
 ```bash

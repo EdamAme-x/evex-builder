@@ -1,5 +1,5 @@
 import * as colors from "@std/fmt/colors";
-import { buildTargets } from './build.ts';
+import { buildTargets } from "./build.ts";
 
 export const HELP = `
 ${colors.bgBlue(`📦 Evex CLI`)}
@@ -13,20 +13,30 @@ ${
   )
 }
 ${
-    colors.gray(
-        ` ${
-            colors.yellow("│  └──┬─") 
-        } <target>: Target Architecture`,
-    )
+  colors.gray(
+    ` ${colors.yellow("│  ├──┬─")} <target>: Target Architecture`,
+  )
 }
 ${
-    Object.entries(buildTargets).map(([taget, [builder, target]]) => {
-        return colors.gray(
-            ` ${
-                colors.yellow("│     ├────")
-            } ${taget}${" ".repeat(12 - taget.length)}: '${target || "auto-detect-arch"}' with ${builder} ${!target && "(default)"}`,
+  Object.entries(buildTargets).map(([taget, [builder, target]], i) => {
+    return colors.gray(
+      ` ${
+        colors.yellow(
+          "│  │  " + (Object.keys(buildTargets).length - 1 === i ? "└" : "├") +
+            "────",
         )
-    }).join("\n")
+      } ${taget}${" ".repeat(12 - taget.length)}: '${
+        target || "auto-detect-arch"
+      }' with ${builder} ${!target && "(default)"}`,
+    );
+  }).join("\n")
+}
+${
+  colors.gray(
+    ` ${
+      colors.yellow("│  └────")
+    } --args <args>: Additional arguments for build command`,
+  )
 }
 ${colors.gray(` ${colors.yellow("└──")} 👉 Help:  'evex help'`)}
 

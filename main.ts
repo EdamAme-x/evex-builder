@@ -1,8 +1,8 @@
-import { parseArgs } from "@std/cli/parse-args";
-import * as colors from "@std/fmt/colors";
+import { parseArgs } from "jsr:@std/cli/parse-args";
+import * as colors from "jsr:@std/fmt/colors";
 import { HELP } from "./consts/help.ts";
 import { buildTargets } from "./consts/build.ts";
-import { $ as $dax } from "@david/dax";
+import { $ as $dax } from "jsr:@david/dax";
 
 const args = parseArgs(Deno.args);
 

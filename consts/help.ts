@@ -1,4 +1,4 @@
-import * as colors from "@std/fmt/colors";
+import * as colors from "jsr:@std/fmt/colors";
 import { buildTargets } from "./build.ts";
 
 export const HELP = `

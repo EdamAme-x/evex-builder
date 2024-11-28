@@ -1,7 +1,1 @@
-{
-  "imports": {
-    "@david/dax": "jsr:@david/dax@^0.42.0",
-    "@std/cli": "jsr:@std/cli@^1.0.7",
-    "@std/fmt": "jsr:@std/fmt@^1.0.3"
-  }
-}
+{}

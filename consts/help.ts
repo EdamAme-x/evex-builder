@@ -2,8 +2,6 @@ import * as colors from "@std/fmt/colors";
 import { buildTargets } from "./build.ts";
 
 export const HELP = `
-${colors.bgBlue(`📦 Evex CLI`)}
-
 ${colors.yellow(`📂 Commands`)}
 ${
   colors.gray(

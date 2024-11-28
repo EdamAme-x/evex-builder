@@ -8,7 +8,11 @@ const args = parseArgs(Deno.args);
 
 const command = args._[0];
 
+console.log(colors.bgBlue(`📦 Evex CLI`) + "\n")
+
 if (command === "build") {
+  console.log(colors.yellow(`🔨 Builder`) + "\n");
+
   const filepath = String(args._[1]);
 
   try {

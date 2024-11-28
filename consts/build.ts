@@ -1,4 +1,5 @@
 export const buildTargets = {
+    "auto": ["deno", null],
     "windows": ["deno", "x86_64-pc-windows-msvc"],
     "macos": ["deno", "x86_64-apple-darwin"],
     "macos:arm64": ["deno", "aarch64-apple-darwin"],
@@ -8,7 +9,7 @@ export const buildTargets = {
     "c": ["porffor", "c"]
 } as const satisfies Record<string, [
     Builder,
-    string
+    string | null
 ]>;
 
 type Builder = "deno" | "porffor";

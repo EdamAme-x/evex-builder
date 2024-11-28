@@ -21,7 +21,7 @@ if (command === "build") {
 
     const filename = filepath.split("/").pop() || "";
 
-    const target = String(args["target"]) || "auto";
+    const target = String(args["target"] === true ? "auto" : args["target"]) || "auto";
 
     if (!filepath) {
       console.error(colors.red(`✘ Missing filepath`));
@@ -72,8 +72,22 @@ if (command === "build") {
             Deno.exit(1);
         }
 
-        command += `deno compile --allow-all --unstable --no-check --target ${targetArch} ${filepath} --output ./${filename.split(".").slice(0, -1).join(".")}.${targetArch}`;
+        command += `deno compile --allow-all --unstable --no-check ${targetArch ? (`--target ${targetArch} `) : ""}${filepath}`;
     }
+
+    console.log(colors.green(`✔ Generated: ${command}`));
+
+    const buildCommand = new Deno.Command(
+        command.split(" ").shift() as string,
+        {
+            args: command.split(" ").slice(1),
+            stdin: "inherit",
+            stdout: "inherit",
+            stderr: "inherit"
+        }
+    )
+        
+    await buildCommand.spawn().output();
 } else {
   if (command && command !== "help") {
     console.error(colors.red(`✘ Unknown command: ${command}`));

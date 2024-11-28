@@ -10,6 +10,7 @@ deno install -g -A -n evex -f https://raw.githubusercontent.com/EdamAme-x/evex-b
 
 ## Usage
 ```bash
+evex build <filepath>
 evex build <filepath> --target <target>
 ```
 
